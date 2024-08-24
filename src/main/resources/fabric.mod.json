@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "id": "elytraunequipper",
   "version": "${version}",
-  "name": "ElytraUnequipper",
-  "description": "A mod that allows you to unequip your elytra by pressing jump, similar to the bedrock edition",
+  "name": "Elytra Stopper",
+  "description": "A mod that stops the elytra flight when pressing jump, like how it works in bedrock edition",
   "authors": ["Lonelywalf"],
   "contact": {
-    "repo": ""
+    "repo": "https://github.com/Lonelywalf/ElytraUnequipper/tree/fabric-1.21"
   },
   "license": "GPL-3.0",
   "icon": "assets/elytraunequipper/icon.png",

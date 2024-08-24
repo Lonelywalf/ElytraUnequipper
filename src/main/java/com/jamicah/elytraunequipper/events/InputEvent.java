@@ -19,8 +19,6 @@ public class InputEvent implements ClientTickEvents.EndTick {
 
     boolean isElytraMode = false;
 
-    boolean test = false;
-
     // this is such a mess of a code
     // there are probably better ways to do this,
     // but I'm too tired to refactor this
@@ -32,21 +30,6 @@ public class InputEvent implements ClientTickEvents.EndTick {
             return;
         }
 
-
-
-        if (!test) {
-            test = true;
-            System.out.println("isPlayerFlying: " + isPlayerFlying);
-            System.out.println("hasPlayerJumped: " + hasPlayerJumped);
-            System.out.println("wasPlayerJumpingLastTick: " + wasPlayerJumpingLastTick);
-            System.out.println("hasPlayerPressedJumpThisTick: " + hasPlayerPressedJumpThisTick);
-            System.out.println("isElytraMode: " + isElytraMode);
-            System.out.println("elytraFlightCheckCounter: " + elytraFlightCheckCounter);
-            System.out.println("jumped: " + jumped);
-            System.out.println("wasJumpingLastTick: " + wasJumpingLastTick);
-            System.out.println("isElytraMode: " + isElytraMode);
-            System.out.println();
-        }
         isPlayerFlying = c.player.isFallFlying();
 
         hasPlayerJumped = c.player.input.jumping;
@@ -91,11 +74,6 @@ public class InputEvent implements ClientTickEvents.EndTick {
             reset();
         }
 
-            // locate the elytra in the inventory and send it to chat
-            // for debugging purposes
-
-
-
     }
 
     // reset values back to its original state
@@ -136,6 +114,7 @@ public class InputEvent implements ClientTickEvents.EndTick {
         isElytraMode = false;
     }
 
+    // currently unused feature, might use it later
     public boolean isChestplate(Item item) {
         return item == Items.LEATHER_CHESTPLATE
                 || item == Items.CHAINMAIL_CHESTPLATE
