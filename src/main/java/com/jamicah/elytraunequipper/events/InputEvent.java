@@ -39,6 +39,7 @@ public class InputEvent implements ClientTickEvents.EndTick {
 
         jumped = c.player.input.jumping;
         if (!c.player.isFallFlying()) {
+            elytraFlightCheckCounter = 0;
             isElytraMode = false;
         }
         // this if statement is true when
