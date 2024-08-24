@@ -120,8 +120,8 @@ public class InputEvent implements ClientTickEvents.EndTick {
             );
             try {
                 Thread.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            } catch (InterruptedException ignored) {
+
             }
             c.interactionManager.clickSlot(
                     c.player.playerScreenHandler.syncId,
