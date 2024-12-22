@@ -30,18 +30,18 @@ public class InputEvent implements ClientTickEvents.EndTick {
             return;
         }
 
-        isPlayerFlying = c.player.isFallFlying();
 
-        hasPlayerJumped = c.player.input.jumping;
+        isPlayerFlying = c.player.isGliding();
+
+        hasPlayerJumped = c.player.input.playerInput.jump();
         hasPlayerPressedJumpThisTick = !wasPlayerJumpingLastTick && hasPlayerJumped;
         wasPlayerJumpingLastTick = hasPlayerJumped;
 
-
-        jumped = c.player.input.jumping;
+        jumped = c.player.input.playerInput.jump();
 
         // mostly happens when the player held down the space bar
         // whilst flying down and landing
-        if (!c.player.isFallFlying()) {
+        if (!c.player.isGliding()) {
             reset();
         }
 
@@ -68,7 +68,7 @@ public class InputEvent implements ClientTickEvents.EndTick {
 
         // this is executed when the player is currently
         // flying with the elytra and presses the jump button
-        if (isElytraMode && c.player.input.jumping) {
+        if (isElytraMode && c.player.input.playerInput.jump()) {
             unequipElytra(c);
 
             reset();
@@ -90,7 +90,7 @@ public class InputEvent implements ClientTickEvents.EndTick {
             assert c.interactionManager != null;
             c.interactionManager.clickSlot(
                     c.player.playerScreenHandler.syncId,
-                    6,          // starts index from top to bottom (source)
+                    6,                  // starts index from top to bottom (source)
                     0,                 // action type, 0 is left click; 1 is right click
                     SlotActionType.PICKUP,
                     c.player
